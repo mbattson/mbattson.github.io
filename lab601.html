@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>My lab 5 web page.</title>
+    <style>
+       body {width: 100%; background-color: #D7DBD7}
+      #container {
+        width: 95%;
+        text-aligh: left;
+        margin: 0px auto;
+      }
+
+      h1, h3 {color: #3B433C; 
+              margin-top: 30px; 
+              font-family: times;
+              text-decoration: underline;}
+      p, td, li {
+        font-size: 15px;
+        font-family: arial;
+      }
+      
+      #stoic_texts {height: 350px;
+                   margin-top: 30px}
+      #stoic_list {width: 425px;
+                   height: 250px;
+                   margin-left: 350px;
+                   padding-top: 65px;
+                   padding-left: 80px;
+                   border: 5px double #5E8735;
+                   background-color: #C0DCA4;}
+      #photo {
+        background-color: #86BC50;
+        margi-left: 5%;
+        margin-right: 5%;
+        padding: 5px 5px 5px 5px;
+        float: left;
+      }
+      #StoicCoop {
+        height: 250px;
+        width: auto;
+        border-width: 5px;
+        border-style: double;
+        border-color: #17210D;
+        display: block;
+        margin: auto;
+      }
+      .caption {
+        font-size: 12px;
+        font-family: times;
+        text-align: center;
+      }
+      
+      #famous_stoics {
+        border-collapse: collapse;
+        border: 3px solid #17210D;
+        align: center;
+      }
+      #famous_stoics th {
+        font-family: times;
+        font-size: 17px;
+        font-weight: bold;
+        background-color: #5E8735;
+        border: 3px solid #17210D;
+        padding: 10px;
+        margin-left: 20%;
+      }
+      #famous_stoics td {
+        background-color: #C0DCA4;
+        border: 2px dotted #17210D;
+        padding: 15px;
+        text-align: center;
+      }
+
+      a {text-decoration: none;
+        background-color: #C0DCA4;}
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    </script>
+
+    <script>
+      $(document).ready( function() {
+        $("#button1").click( function() {
+          //if someone clicks button1, the following code will run
+          console.log("Viewed additional texts.");
+          $("#stoic_list").show();
+        });
+      });
+    </script>
+    
+  </head>
+
+  
+  <body>
+    <div id = "container">
+    <h1>Some thoughts on Stoicism</h1>
+    <h3>Marcus Aurelius: Meditations</h3>
+    <p>Marcus Aurelius is one of the best known stoic philosophers, and his 'Meditations' is short, concise, and easily applicable to every day life. <br />
+    Since this book is actually his journal to himself the text is accessible and includes many thoughts that the reader can relate to. <br />
+    However, some readers may struggle be hestitant to try stoicism after reading Meditations because of the sometimes brutally rigorous way that Marcus Aurelius approached life, and how critical he was of himself.</p>
+   
+    <h3>Seneca: Letters from a Stoic</h3>
+    <p>Letters from a Stoic by Seneca are considerably longer than Meditations, and include 124 letters that Seneca wrote to his friend Lucilius. <br />
+    The tone of the letters range from supportive to critical, as Seneca gives adivce to his friend, answers questions, and reflects on his own struggles to be a good stoic. <br />
+    Due to the nature of the letters I find that the advice is given much more kindly, and shows a more human approach to stoicism, which may be easier for readers newly interested in stoicism to implement.</p>
+
+    
+    <div id = "stoic_texts">  
+     
+      <div id = "photo">
+        <img id = "StoicCoop"src = "StoicCoop.jpg" width="525" height="450" />
+        <p class = "caption"> Cooper examining Letters from a Stoic by Seneca </p>
+        <p class = "caption"> Photo by author </p>
+      </div>
+
+      <button id = "button1"> Click here to view some recommended stoic texts. </button>
+      <div id = "stoic_list">
+      <h3>Recommended Stoic Texts</h3>
+      <ul>
+        <li>Meditations by Marcus Aurelius</li>
+        <li>Letters from a Stoic by Seneca</li>
+        <li>On the Shortness of Life by Seneca</li>
+        <li>Discourses and Selected Writings by Epictetus</li>
+        <li>Enchiridion by Epictetus</li>
+      </ul>
+      </div>
+    </div>  
+
+      
+    <h3>Famous Stoics</h3>
+    <table id = "famous_stoics">
+      <tr>
+        <th>Name</th>
+        <th>Dates</th>
+        <th>Noted Philosophical Works</th>
+      </tr>
+      <tr>
+        <td>Zeno of Citium</td>
+        <td>Approx 334-262BC</td>
+        <td>None have survived intact, The Republic is the most well documented</td>
+      </tr>
+      <tr>
+        <td>Cleanthes of Assos</td>
+        <td>330-230BC</td>
+        <td>None have survived intact</td>
+      </tr>
+      <tr>
+        <td>Chrysippus of Soli</td>
+        <td>279-206BC</td>
+        <td>On Passions, Physical Theses</td>
+      </tr>
+      <tr>
+        <td>Lucius Anneaus Senecta</td>
+        <td>4BC-65AD</td>
+        <td>Letters from a Stoic, On the Shortness of Life</td>
+      </tr>
+      <tr>
+        <td>Gaius Musonius Rufus</td>
+        <td>Approx 20-101AD</td>
+        <td>Discourses</td>
+      </tr>
+      <tr>
+        <td>Epictetus</td>
+        <td>50-135AD</td>
+        <td>Enchiridion, Discourses</td>
+      </tr>
+      <tr>
+        <td>Marcus Aurelius</td>
+        <td>121-180AD</td>
+        <td>Meditations</td>
+      </tr>
+    </table>
+
+    <div id = "additional">
+      <h3>Additional Resources</h3>
+      <p>Ryan Holiday is great source when getting started with Stoicism.  More information about his books, classes, podcasts and videos are available at his website <a href = "https://www.dailystoic.com/">Daily Stoic</a>.</p>
+    </div>
+      
+    </div>
+  </body>
+</html>
