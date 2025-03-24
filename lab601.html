@@ -80,11 +80,19 @@
 
     <script>
       $(document).ready( function() {
-        $("#button1").click( function() {
+        
+        $("#buttonTexts").click( function() {
           //if someone clicks button1, the following code will run
           console.log("Viewed additional texts.");
-          $("#stoic_list").show();
+          $("#stoic_texts").show();
         });
+
+        $("#buttonFamousTable").click( function() {
+          console.log("Viewed Stoics Table.");
+          $("#famous_stoics").text();
+          
+        });
+        
       });
     </script>
     
@@ -105,7 +113,8 @@
     Due to the nature of the letters I find that the advice is given much more kindly, and shows a more human approach to stoicism, which may be easier for readers newly interested in stoicism to implement.</p>
 
     
-    <div id = "stoic_texts">  
+      <button id = "buttonTexts"> Click here to view some recommended stoic texts. </button>
+      <div id = "stoic_texts">  
      
       <div id = "photo">
         <img id = "StoicCoop"src = "StoicCoop.jpg" width="525" height="450" />
@@ -113,7 +122,6 @@
         <p class = "caption"> Photo by author </p>
       </div>
 
-      <button id = "button1"> Click here to view some recommended stoic texts. </button>
       <div id = "stoic_list">
       <h3>Recommended Stoic Texts</h3>
       <ul>
@@ -128,6 +136,7 @@
 
       
     <h3>Famous Stoics</h3>
+    <button id = "buttonFamousTable"> Click here to view a list of stoics and information about them. </button>
     <table id = "famous_stoics">
       <tr>
         <th>Name</th>
