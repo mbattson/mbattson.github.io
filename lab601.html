@@ -80,7 +80,6 @@
       a {text-decoration: none;
         background-color: #C0DCA4;}
 
-      #addlResources {display: none}
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  
@@ -92,18 +91,18 @@
         $("#buttonTexts").click( function() {
           //if someone clicks button1, the following code will run
           console.log("Viewed additional texts.");
-          $("#stoic_list").show();         
+          $("#stoic_list").fadeIn(1000, "linear");         
           });
       
 
         $("#buttonToggleTable").click( function() {
           console.log("Toggled Stoics Table.");
-          $("#famousStoics").toggleFade(1000, "linear");
+          $("#famousStoics").fadeToggle(1000, "linear");
           });
 
         $("#buttonResources").click( function() {
           console.log("Viewed additional resources.");
-          $("#buttonResources").html("#addlResources")
+          $("#buttonResources").html("<p> Ryan Holiday is great source when getting started with Stoicism.  More information about his books, classes, podcasts and videos are available at his website <a href = 'https://www.dailystoic.com/'>Daily Stoic</a>.</p>")
           });
                      
       });
@@ -202,7 +201,7 @@
     <div id = "additional">
       <h3>Additional Resources</h3>
       <button id = "buttonResources"> Click here to view additional resources. </button>
-      <p id = "addlResources"> Ryan Holiday is great source when getting started with Stoicism.  More information about his books, classes, podcasts and videos are available at his website <a href = "https://www.dailystoic.com/">Daily Stoic</a>.</p>
+      
      
     </div>
       
