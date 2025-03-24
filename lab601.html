@@ -21,13 +21,16 @@
       
       #stoic_texts {height: 350px;
                    margin-top: 30px}
-      #stoicList {width: 425px;
+      #stoicList {display:none;
+		  
+      #stoic_list {width: 425px;
                    height: 250px;
                    margin-left: 350px;
                    padding-top: 65px;
                    padding-left: 80px;
                    border: 5px double #5E8735;
                    background-color: #C0DCA4;}
+		  
       #buttonTexts {margin-left: 50px;
                     margin-top: 100px;
                     background-color: #C0DCA4;}
@@ -99,7 +102,7 @@
         $("#buttonTexts").click( function() {
           //if someone clicks button1, the following code will run
           console.log("Viewed additional texts.");
-          $("#stoicList").fadeIn(1000, "linear");         
+          $("#stoicList").html("#stoic_list");         
           });
       
 
@@ -146,6 +149,7 @@
       
         <button id = "buttonTexts"> Click here to view some recommended stoic texts. </button>
         <div id = "stoicList">
+	  <div id = "stoic_list">
             <h3>Recommended Stoic Texts</h3>
               <ul>
                 <li>Meditations by Marcus Aurelius</li>
@@ -154,7 +158,8 @@
                 <li>Discourses and Selected Writings by Epictetus</li>
                 <li>Enchiridion by Epictetus</li>
               </ul>
-      </div>
+	    </div>
+	  </div>
 
     </div>  
 
