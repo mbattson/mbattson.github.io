@@ -21,7 +21,7 @@
       
       #stoic_texts {height: 350px;
                    margin-top: 30px}
-      #stoic_list {width: 425px;
+      #stoicList {width: 425px;
                    height: 250px;
                    margin-left: 350px;
                    padding-top: 65px;
@@ -78,22 +78,34 @@
         background-color: #C0DCA4;}
     </style>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+    //test script
+     $(document).ready(function(){
+      $("#button").click(function(){
+	console.log("Toggle text button clicked");
+        $("#div1").fadeIn(1000, "linear");
+      });	
+      $("#div2").click(function(){
+	console.log("Clicked second button");
+	$("#button2").html("https://stephenking.com/darktower/");
+      });
+    });    
+
+    
     <script>
       $(document).ready( function() {
         
         $("#buttonTexts").click( function() {
           //if someone clicks button1, the following code will run
           console.log("Viewed additional texts.");
-          $("#stoic_list").fadeIn(1000, "linear");         
+          $("#stoicList").fadeIn(1000, "linear");         
           });
       
 
         $("#buttonToggleTable").click( function() {
           console.log("Toggled Stoics Table.");
-          $("#famous_stoics").toggle();
+          $("#famousStoics").toggleFade(1000, "linear");
           });
 
         $("#buttonResources").click( function() {
@@ -133,7 +145,7 @@
 
       
         <button id = "buttonTexts"> Click here to view some recommended stoic texts. </button>
-        <div id = "stoic_list">
+        <div id = "stoicList">
             <h3>Recommended Stoic Texts</h3>
               <ul>
                 <li>Meditations by Marcus Aurelius</li>
@@ -149,7 +161,8 @@
       
     <h3>Famous Stoics</h3>
     <button id = "buttonToggleTable"> Click here to hide or view the table of stoics and information about them. </button>
-    <table id = "famous_stoics">
+    <div id = famousStoics>
+      <table id = "famous_stoics">
       <tr>
         <th>Name</th>
         <th>Dates</th>
@@ -191,7 +204,7 @@
         <td>Meditations</td>
       </tr>
     </table>
-
+    </div>
     <div id = "additional">
       <h3>Additional Resources</h3>
       <div id= "addlResources"> <button id = "buttonResources"> Click here to view additional resources. </button> </div>
