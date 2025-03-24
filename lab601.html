@@ -28,7 +28,7 @@
                    padding-left: 80px;
                    border: 5px double #5E8735;
                    background-color: #C0DCA4;}
-      #buttonTexts {margin-left: 150px;
+      #buttonTexts {margin-left: 50px;
                     margin-top: 100px;
                     background-color: #C0DCA4;}
       #photo {
@@ -98,14 +98,19 @@
                 <li>Enchiridion by Epictetus</li>
               </ul>
           
-          );
+          });
         });
 
-        $("#buttonFamousTable").click( function() {
-          console.log("Viewed Stoics Table.");
-          $("#famous_stoics").text();
-          
-        });
+        $("#buttonToggleTable").click( function() {
+          console.log("Toggled Stoics Table.");
+          $("#famous_stoics").toggle();
+          });
+
+        $("#buttonResources).click( function() {
+          console.log("Viewed additional resources.");
+          $("#addlResources").html(
+           "Ryan Holiday is great source when getting started with Stoicism.  More information about his books, classes, podcasts and videos are available at his website <a href = "https://www.dailystoic.com/">Daily Stoic</a>."
+          )});
         
       });
     </script>
@@ -144,7 +149,7 @@
 
       
     <h3>Famous Stoics</h3>
-    <button id = "buttonFamousTable"> Click here to view a list of stoics and information about them. </button>
+    <button id = "buttonToggleTable"> Click here to hide or view the table of stoics and information about them. </button>
     <table id = "famous_stoics">
       <tr>
         <th>Name</th>
@@ -190,7 +195,8 @@
 
     <div id = "additional">
       <h3>Additional Resources</h3>
-      <p>Ryan Holiday is great source when getting started with Stoicism.  More information about his books, classes, podcasts and videos are available at his website <a href = "https://www.dailystoic.com/">Daily Stoic</a>.</p>
+      <div id= "addlResources"> <button id = "buttonResources"> Click here to view additional resources. </button> </div>
+     
     </div>
       
     </div>
