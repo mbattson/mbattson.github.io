@@ -29,11 +29,13 @@
                    padding-top: 65px;
                    padding-left: 80px;
                    border: 5px double #5E8735;
-                   background-color: #C0DCA4;}
+                   background-color: #C0DCA4;
+		   z-index: 2}
 		  
       #buttonTexts {margin-left: 50px;
                     margin-top: 100px;
-                    background-color: #C0DCA4;}
+                    background-color: #C0DCA4;
+		    z-index: 1}
       #photo {
         background-color: #86BC50;
         margi-left: 5%;
@@ -91,7 +93,7 @@
         $("#buttonTexts").click( function() {
           //if someone clicks button1, the following code will run
           console.log("Viewed additional texts.");
-          $("#stoic_list").fadeIn(1000, "linear");         
+          $("#stoicList").fadeIn(1000, "linear");         
           });
       
 
