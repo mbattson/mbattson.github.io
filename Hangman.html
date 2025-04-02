@@ -18,8 +18,8 @@
               border-color: #33CC33;
               background-color: #66FFFF;
             }
-      #blank { font: 40px;
-               padding: 10px;
+      #blank { font-size: 30px;
+               padding: 20px;
               }
       #info { height: 50px;
               width: 280px;
@@ -29,6 +29,8 @@
               border-color: #000000;
               background-color: #FFFF99; 
             }
+      #guesses {font-size: 20px;
+                font-weight: bold;}
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -61,7 +63,7 @@
                     letter = $(this).text();
                     console.log("Clicked on: ", letter)
 
-                    // make a line through the letter
+                    // change the clicked letter to red
                     $(this).css("color", "#FF0000");
 
                     // if the letter has already been clicked on, 
