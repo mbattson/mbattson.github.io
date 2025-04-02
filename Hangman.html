@@ -5,22 +5,27 @@
     <title>Hangman!</title>
     <style>
       #alphabet { margin: auto;
-                  padding: 20px; }
+                  padding: 20px;
+                  font: 20px;
+                  font-weight: bold;}
       #word { margin: auto;
-              font: 400em serif bold;
-              padding: 20px;
-            }
-      #blank {font: 30px;}
-      #info { height: 100px;
-              width: 300px;
+              font: 40px serif bold;
+              padding: 20px;}
+      #blank { font: 40px serif bold;
+               padding: 10px;
+               border-width: 5px;
+               border-style: bevel;
+               border-color: green;
+               background-color: blue;
+              }
+      #info { height: 50px;
+              width: 280px;
               padding: 20px; 
               border-width: 5px;
               border-style: double;
               border-color: #000000;
               background-color: yellow; 
             }
-      .letter {font: 20px;
-              font-weight: bold;}
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -73,6 +78,11 @@
                       if(tries < 1) {
                         gameLost = true;
                         $("#info").text("Sorry, you are out of guesses.  You lost!");
+                      }
+
+                      // mistakes count turns red with three or fewer remaining
+                      if(tries < 4) {
+                        $("#guesses").css("color", "#FF0000")
                       }
                     
                     
