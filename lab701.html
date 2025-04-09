@@ -10,8 +10,8 @@
               font-family: times;
               text-decoration: underline;}
 
-       #map {height: 500px;
-             width: 500px;}
+       #map {height: 600px;
+             width: 600px;}
      
     </style>
 
@@ -51,22 +51,22 @@
           ]).addTo(map);
 
         //popups bound to map objects
-       // marker.bindPopup("Hotel we will be staying at.").openPopup();
-       // circle.bindPopup("General area that I will be going on daily walks.");
-        //polygon.bindPopup("Orange County Convention Center");
+        marker.bindPopup("Hotel we will be staying at.").openPopup();
+        circle.bindPopup("General area that I will be going on daily walks.");
+        polygon.bindPopup("Orange County Convention Center");
 
         
         //popup for map click
-       // var popup = L.popup();
+        var popup = L.popup();
 
-       // function onMapClick(e) {
-       //   popup
-       //     .setLatLng(e.latlng)
-       //     .setContent("You clicked the map at " + e.latlng.toString())
-        //    .openOn(map);
-      //    }
+        function onMapClick(e) {
+          popup
+            .setLatLng(e.latlng)
+            .setContent("You clicked the map at " + e.latlng.toString())
+            .openOn(map);
+          }
 
-      //  map.on('click', onMapClick);
+        map.on('click', onMapClick);
                      
       });
     </script>
@@ -76,7 +76,7 @@
   
   <body>
 
-    <h3>Welcome to the Orange County Convention Center</h3> 
+    <h3>Our visit to the Orange County Convention Center</h3> 
     <div id="map"></div>
     
   </body>
