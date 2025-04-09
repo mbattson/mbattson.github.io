@@ -5,10 +5,11 @@
     <style>
        body {width: 100%; background-color: #D7DBD7}
       
-       h1, h3 {color: #3B433C; 
-              margin-top: 30px; 
-              font-family: times;
-              text-decoration: underline;}
+       h3 {color: #3B433C; 
+            margin-top: 10px; 
+            margin-left: 100px;
+            font-family: times;
+            text-decoration: underline;}
 
        #map {height: 600px;
              width: 600px;}
@@ -40,8 +41,8 @@
         var markerAir = L.marker([28.424, -81.312]).addTo(map);
         var markerNifty = L.marker([28.541, -81.378]).addTo(map);
         var circle = L.circle([28.544, -81.362],
-          {color: 'red',
-           fillColor: '#f03',
+          {color: '#FFFF66',
+           fillColor: '#CCFF99',
            fillOpacity: 0.4,
            radius: 1200
            }).addTo(map);
@@ -58,6 +59,12 @@
         markerNifty.bindPopup("Nifty's Korean BBQ");
         circle.bindPopup("General area that I will be going on daily walks.");
         polygon.bindPopup("Orange County Convention Center");
+
+
+        var popup = L.popup()
+          .setLatLng([28.481, -81.385])
+          .setContent("Orlando, FL")
+          .openOn(map);
 
         
         //popup for map click
