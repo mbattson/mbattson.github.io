@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>My lab 7 web page.</title>
+    <style>
+       body {width: 100%; background-color: #D7DBD7}
+      
+       h1, h3 {color: #3B433C; 
+              margin-top: 30px; 
+              font-family: times;
+              text-decoration: underline;}
+
+       #map {height: 180px;}
+     
+    </style>
+
+    //Leaflet CSS stylesheet
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+    //leaflet js file
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    //jquery js file
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  
+
+    //js code / actions
+    <script>
+      $(document).ready( function() {
+                
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
+                    {maxZoom: 19,
+                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+                     
+      });
+    </script>
+    
+  </head>
+
+  
+  <body>
+
+    <h3>Welcome to the Orange County Convention Center</h3> 
+    <div id="map"></div>
+    
+  </body>
+</html>
