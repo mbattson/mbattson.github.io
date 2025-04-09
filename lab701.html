@@ -37,18 +37,18 @@
 
         //map objects
         var marker = L.marker([28.425, -81.459]).addTo(map);
-        var circle = L.circle([36.727, -76.565],
+        var circle = L.circle([28.544, -81.362],
           {color: 'red',
            fillColor: '#f03',
            fillOpacity: 0.4,
            radius: 500
            }).addTo(map);
-        //var polygon = L.polygon({
-          //[28.428, -81.472],
-          //[28.426, -81.473],
-          //[28.422, -81.467],
-          //[28.423, -81.466]
-          //}).addTo(map);
+        var polygon = L.polygon({
+          [28.428, -81.472],
+          [28.426, -81.473],
+          [28.422, -81.467],
+          [28.423, -81.466]
+          }).addTo(map);
 
         //popups bound to map objects
        // marker.bindPopup("Hotel we will be staying at.").openPopup();
