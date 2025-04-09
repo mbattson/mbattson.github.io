@@ -29,7 +29,7 @@
     <script>
       $(document).ready( function() {
                 
-        var map = L.map('map').setView([28.481, -81.417], 12);
+        var map = L.map('map').setView([28.481, -81.385], 12);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
                     {maxZoom: 19,
                      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -38,11 +38,12 @@
         //map objects
         var marker = L.marker([28.425, -81.459]).addTo(map);
         var markerAir = L.marker([28.424, -81.312]).addTo(map);
+        var markerNifty = L.marker([28.541, -81.378]).addTo(map);
         var circle = L.circle([28.544, -81.362],
           {color: 'red',
            fillColor: '#f03',
            fillOpacity: 0.4,
-           radius: 500
+           radius: 1200
            }).addTo(map);
         var polygon = L.polygon([
           [28.428, -81.472],
@@ -53,6 +54,8 @@
 
         //popups bound to map objects
         marker.bindPopup("Hotel we will be staying at.");
+        markerAir.bindPopup("Orlando International Airport (MCO)");
+        markerNifty.bindPopup("Nifty's Korean BBQ");
         circle.bindPopup("General area that I will be going on daily walks.");
         polygon.bindPopup("Orange County Convention Center");
 
