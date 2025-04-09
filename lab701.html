@@ -43,12 +43,12 @@
            fillOpacity: 0.4,
            radius: 500
            }).addTo(map);
-        var polygon = L.polygon({
+        var polygon = L.polygon([
           [28.428, -81.472],
           [28.426, -81.473],
           [28.422, -81.467],
-          [28.423, -81.466]
-          }).addTo(map);
+          [28.423, -81.466],
+          ]).addTo(map);
 
         //popups bound to map objects
        // marker.bindPopup("Hotel we will be staying at.").openPopup();
