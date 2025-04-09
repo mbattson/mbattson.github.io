@@ -35,37 +35,37 @@
                     }).addTo(map);
 
         //map objects
-        var marker = L.marker([28.425, -81.459]).addTo(map);
-        var circle = L.circle([36.727, -76.565],
-          {color: 'red',
-           fillColor: '#f03',
-           fillOpacity: 0.4,
-           radius: 500
-           }).addTo(map);
-        var polygon = L.polygon({
-          [28.428, -81.472],
-          [28.426, -81.473],
-          [28.422, -81.467],
-          [28.423, -81.466]
-          }).addTo(map);
+        //var marker = L.marker([28.425, -81.459]).addTo(map);
+        //var circle = L.circle([36.727, -76.565],
+          //{color: 'red',
+           //fillColor: '#f03',
+           //fillOpacity: 0.4,
+           //radius: 500
+          // }).addTo(map);
+        //var polygon = L.polygon({
+          //[28.428, -81.472],
+          //[28.426, -81.473],
+          //[28.422, -81.467],
+          //[28.423, -81.466]
+          //}).addTo(map);
 
         //popups bound to map objects
-        marker.bindPopup("Hotel we will be staying at.").openPopup();
-        circle.bindPopup("General area that I will be going on daily walks.");
-        polygon.bindPopup("Orange County Convention Center");
+       // marker.bindPopup("Hotel we will be staying at.").openPopup();
+       // circle.bindPopup("General area that I will be going on daily walks.");
+        //polygon.bindPopup("Orange County Convention Center");
 
         
         //popup for map click
-        var popup = L.popup();
+       // var popup = L.popup();
 
-        function onMapClick(e) {
-          popup
-            .setLatLng(e.latlng)
-            .setContent("You clicked the map at " + e.latlng.toString())
-            .openOn(map);
-          }
+       // function onMapClick(e) {
+       //   popup
+       //     .setLatLng(e.latlng)
+       //     .setContent("You clicked the map at " + e.latlng.toString())
+        //    .openOn(map);
+      //    }
 
-        map.on('click', onMapClick);
+      //  map.on('click', onMapClick);
                      
       });
     </script>
