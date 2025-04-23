@@ -97,7 +97,7 @@
 			//convert geojson file to a layer
 			acsDenver2021Layer = L.geoJSON(data,
 						      {style:style1,
-						      onEachFeature: function()feature, layer) {
+						      onEachFeature: function(feature, layer) {
 								layer.bindPopup("Percent Poverty: " + feature.properties.PCT_POVERTY + "%");
 						      }}).addTo(map);
 
