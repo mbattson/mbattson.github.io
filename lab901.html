@@ -72,11 +72,11 @@
     // define a function to style choropleth map
     function style1 (feature) {
       d = feature.properties.PCT_AGE65PLUS;
-      answer = d > 80 ? '#f6eff7' :
-        d > 65 ? '#d0d1e6' :
-        d > 50 ? '#a6bddb' :
-        d > 35 ? '#67a9cf' :
-        d > 20 ? '#1c9099' :
+      answer = d > 30 ? '#f6eff7' :
+        d > 20 ? '#d0d1e6' :
+        d > 15 ? '#a6bddb' :
+        d > 10 ? '#67a9cf' :
+        d > 5 ? '#1c9099' :
         '#016c59';
       styleReturn = {
         fillColor : answer,
