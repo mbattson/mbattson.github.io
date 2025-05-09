@@ -34,6 +34,7 @@
 		   }
 		
 		p { font: Verdana, Arial, sens-serif;
+		   color: gray;
 		   font-size: 12px;
 		   text-align: center;}		 
 		
@@ -42,7 +43,7 @@
 			margin: auto;
 			}
 
-		#links {fontColor: Gray}
+		#links {color: Gray}
 		
 		a { text-decoration: underline; color: DarkSeaGreen; }
 
@@ -135,8 +136,8 @@
 		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_TRANS_Trails_OfficialVisitorMap_ln_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
 			//convert geojson file to a layer
 			RMNPtrails = L.geoJSON(data,
-						      {color: 'black';
-						       weight:1;
+						      {color: 'black',
+						       weight:1,
 							onEachFeature: function(feature, layer) {
 								layer.bindPopup("Trail: " + feature.properties.TRLNAME + "     Use: :" + feature.properties.TRLUSE);
 						      }}).addTo(map);
