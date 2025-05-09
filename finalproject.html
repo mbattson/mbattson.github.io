@@ -126,7 +126,7 @@
 			RMNPfires = L.geoJSON(data,
 						      {style:style1,
 						      onEachFeature: function(feature, layer) {
-								layer.bindPopup(feature.properties.NAME + feature.properties.YEAR + "Acres: " + feature.properties.Acres);
+								layer.bindPopup("Name: " + feature.properties.NAME <br> +"Year: "+ feature.properties.YEAR <br> + "Acres: " + feature.properties.Acres);
 						      }}).addTo(map);
 
 			//move hte map to the area of data
