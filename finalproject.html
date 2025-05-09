@@ -24,25 +24,27 @@
 		
 		h1 { color: CadetBlue;
 		     font-family: Verdana, Arial, sans-serif;
-		     font-size: 20px;
+		     font-size: 25px;
+		     text-align: center;
 		    }
 
 		h3 {font-family: Verdana, Arial, sans-serif;
-		    font-size: 14px;
+		    font-size: 15px;
+		    text-align: center;
 		   }
 		
 		p { font: Verdana, Arial, sens-serif;
-		   font-size: 10px;}		  }
+		   font-size: 12px;
+		   text-align: center;}		 
 		
 		#header {
 			width: 100%;
 			margin: auto;
-			text-align: center;
-		}
+			}
 
-		#links {color: 'Gray'}
+		#links {fontColor: Gray}
 		
-		a { text-decoration: underline; color: 'DarkSeaGreen'; }
+		a { text-decoration: underline; color: DarkSeaGreen; }
 
     .legend {
       line-height: 18px;
@@ -68,7 +70,7 @@
 	$(document).ready(function() {
 
 		// let's create our basemap!
-		map = L.map('map').setView([0,0], 8);
+		map = L.map('map').setView([0,0], 9.5);
 		
 		// let's add three sets of background tiles - one from OSM,  one from HOT OSM, and one from openTopoMap
 		var OSMTiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -133,8 +135,8 @@
 		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_TRANS_Trails_OfficialVisitorMap_ln_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
 			//convert geojson file to a layer
 			RMNPtrails = L.geoJSON(data,
-						      {color: 'black', 
-						       weight:2,
+						      {color: 'black';
+						       weight:1;
 							onEachFeature: function(feature, layer) {
 								layer.bindPopup("Trail: " + feature.properties.TRLNAME + "     Use: :" + feature.properties.TRLUSE);
 						      }}).addTo(map);
@@ -149,7 +151,7 @@
 		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_HYDRO_Glaciers_pt_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
 			//convert geojson file to a layer
 			RMNPglaciers = L.geoJSON(data,
-						      {fillColor: 'white',
+						      {
 							onEachFeature: function(feature, layer) {
 								layer.bindPopup("Glacier Name : " + feature.properties.FEATURE_NA + "     Elevation (ft): " + feature.properties.ELEV_IN_FT);
 						      }}).addTo(map);
