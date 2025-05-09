@@ -20,24 +20,29 @@
 			margin: 0;
 		}
 		
-		#map { width:50%; height: 70%; }
+		#map { width:50%; height: 70%; align: center;}
 		
-		h1 { color: #3293a8;
-		     font-family: "Garamond", serif;
+		h1 { color: "CadetBlue";
+		     font-family: Verdana, Arial, sans-serif;
 		     font-size: 20px;
 		    }
+
+		h3 {font-family: Verdana, Arial, sans-serif;
+		    font-size: 14px;
+		   }
 		
-		p { font: serif 10px;
-		    color: #3293a8;
-		  }
+		p { font: Verdana, Arial, sens-serif;
+		   font-size: 10px;}		  }
 		
 		#header {
 			width: 100%;
 			margin: auto;
 			align: center;
 		}
+
+		#links {color: "gray"}
 		
-		a { text-decoration: none; color: inherit; }
+		a { text-decoration: underline; color: "DarkSeaGreen"; }
 
     .legend {
       line-height: 18px;
@@ -63,7 +68,7 @@
 	$(document).ready(function() {
 
 		// let's create our basemap!
-		map = L.map('map').setView([0,0], 10.5);
+		map = L.map('map').setView([0,0], 8);
 		
 		// let's add three sets of background tiles - one from OSM,  one from HOT OSM, and one from openTopoMap
 		var OSMTiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -128,7 +133,8 @@
 		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_TRANS_Trails_OfficialVisitorMap_ln_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
 			//convert geojson file to a layer
 			RMNPtrails = L.geoJSON(data,
-						      {color: 'black',
+						      {color: 'black', 
+						       weight:2,
 							onEachFeature: function(feature, layer) {
 								layer.bindPopup("Trail: " + feature.properties.TRLNAME + "     Use: :" + feature.properties.TRLUSE);
 						      }}).addTo(map);
@@ -143,7 +149,8 @@
 		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_HYDRO_Glaciers_pt_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
 			//convert geojson file to a layer
 			RMNPglaciers = L.geoJSON(data,
-						      {onEachFeature: function(feature, layer) {
+						      {<i class="fas fa-snowflake"></i>,
+							onEachFeature: function(feature, layer) {
 								layer.bindPopup("Glacier Name : " + feature.properties.FEATURE_NA + "     Elevation (ft): " + feature.properties.ELEV_IN_FT);
 						      }}).addTo(map);
 
@@ -181,11 +188,16 @@
 
 
 <div id="header">
-	<h1><a href="https://www.census.gov/programs-surveys/acs">Denver 2021 American Community Survey (Census) data</a></h1>
-	<p>Data from <a href="https://opendata-geospatialdenver.hub.arcgis.com/maps/619c7f836b6e4188b0e0f0458aecba26">Denver Open Data Catalog</a></p>
-	<p>Data shows the percentage of the population in each neighborhood that is over the age of 65. </p>
+	<h1>Exploring Rocky Mountain National Park</h1>
+	<p>Use the following map to find the best trails to explore glaciers and avoid burn areas on your next visit to Rocky Mountain National Park. </p>
 </div>
 <div id="map"></div>
+<div id = "links">
+	<p>All data sourced from <a href="https://public-nps.opendata.arcgis.com/datasets/nps::rocky-mountain-national-park-trails/about">the National Park Service</a></p>
+	<p>Rocky Mountain  National Park <a href="https://public-nps.opendata.arcgis.com/datasets/nps::rocky-mountain-national-park-fire-history-recent/about">fire data</a></p>
+	<p>Rocky Mountain  National Park <a href="https://public-nps.opendata.arcgis.com/datasets/nps::rocky-mountain-national-park-trails/about">trail data</a></p>
+	<p>Rocky Mountain  National Park <a href="https://public-nps.opendata.arcgis.com/datasets/nps::rocky-mountain-national-park-glaciers/about">glacier data</a></p>
+</div>
 
 
 </body>
