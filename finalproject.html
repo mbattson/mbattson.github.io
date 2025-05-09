@@ -104,37 +104,57 @@
 	return styleReturn;
       };
 
-    
-		// let's add the RMNP vegetation type data
-		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_VEG_Vegetation_py_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
-			//convert geojson file to a layer
-			RMNPvegmap = L.geoJSON(data,
-						      {style:style1,
-						      onEachFeature: function(feature, layer) {
-								layer.bindPopup("Vegitation Type: " + feature.properties.COMMON_MAP);
-						      }}).addTo(map);
 
-			//move hte map to the area of data
-			map.panTo(RMNPvegmap.getBounds().getCenter());
 
-			//add the layer to the layercontrol
-			layerControl.addOverlay(RMNPvegmap, "RMNP Vegetation");
-		});
-
-		// let's try to add some remote DRCOG data
+		// remote RMNP fires data
 		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_FIRE_FireHistoryRecent_ParkandVicinity_py_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
 			RMNPfires = L.geoJSON(data,
 						      {style:style1,
 						      onEachFeature: function(feature, layer) {
-								layer.bindPopup("Name: " + feature.properties.NAME <br> +"Year: "+ feature.properties.YEAR <br> + "Acres: " + feature.properties.Acres);
+								layer.bindPopup("Name: " + feature.properties.NAME +" Year: "+ feature.properties.YEAR <br> + " Acres: " + feature.properties.Acres);
 						      }}).addTo(map);
 
 			//move hte map to the area of data
 			map.panTo(RMNPfires.getBounds().getCenter());
 
 			//add the layer to the layercontrol
-			layerControl.addOverlay(RMNPfires, "RMNP Fires");
+			layerControl.addOverlay(RMNPfires, "Front Range Fires");
 		});
+
+		
+		// remote RMNP streams data
+		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_HYDRO_Streams_ln_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
+			//convert geojson file to a layer
+			RMNPstreams = L.geoJSON(data,
+						      {style:style1,
+						      onEachFeature: function(feature, layer) {
+								layer.bindPopup("Stream Name (if known): " + feature.properties.NAME);
+						      }}).addTo(map);
+
+			//move hte map to the area of data
+			map.panTo(RMNPstreams.getBounds().getCenter());
+
+			//add the layer to the layercontrol
+			layerControl.addOverlay(RMNPstreams, "RMNP Streams");
+		});
+
+		
+		// remote RMNP glacier data
+		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_HYDRO_Streams_ln_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
+			//convert geojson file to a layer
+			RMNPglaciers = L.geoJSON(data,
+						      {style:style1,
+						      onEachFeature: function(feature, layer) {
+								layer.bindPopup("Glacier Name : " + feature.properties.NAME + "     Elevation (ft): " + feature.properties.ELEV_IN_FT);
+						      }}).addTo(map);
+
+			//move hte map to the area of data
+			map.panTo(RMNPglaciers.getBounds().getCenter());
+
+			//add the layer to the layercontrol
+			layerControl.addOverlay(RMNPglaciers, "RMNP Glaciers");
+		});
+
 
     //create map legend
     var legend = L.control({position: 'bottomright'});
