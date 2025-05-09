@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Final Project - Coral Bleaching</title>
+	<title>Final Project - RMNP</title>
 	
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -126,8 +126,13 @@
 			RMNPfires = L.geoJSON(data,
 						      {style:style1,
 						      onEachFeature: function(feature, layer) {
-								layer.bindPopup(feature.properties.NAME <br> feature.properties.YEAR <br> "Acres: " + feature.properties.Acres);
-        }}).addTo(map);
+								layer.bindPopup(feature.properties.NAME + feature.properties.YEAR + "Acres: " + feature.properties.Acres);
+						      }}).addTo(map);
+
+			//move hte map to the area of data
+			map.panTo(RMNPfires.getBounds().getCenter());
+
+			//add the layer to the layercontrol
 			layerControl.addOverlay(RMNPfires, "RMNP Fires");
 		});
 
