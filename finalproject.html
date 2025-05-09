@@ -22,7 +22,7 @@
 		
 		#map { width:50%; height: 70%; align: center;}
 		
-		h1 { color: "CadetBlue";
+		h1 { color: 'CadetBlue';
 		     font-family: Verdana, Arial, sans-serif;
 		     font-size: 20px;
 		    }
@@ -40,9 +40,9 @@
 			align: center;
 		}
 
-		#links {color: "gray"}
+		#links {color: 'Gray'}
 		
-		a { text-decoration: underline; color: "DarkSeaGreen"; }
+		a { text-decoration: underline; color: 'DarkSeaGreen'; }
 
     .legend {
       line-height: 18px;
@@ -149,7 +149,7 @@
 		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_HYDRO_Glaciers_pt_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
 			//convert geojson file to a layer
 			RMNPglaciers = L.geoJSON(data,
-						      {<i class="fas fa-snowflake"></i>,
+						      {fillColor: 'white',
 							onEachFeature: function(feature, layer) {
 								layer.bindPopup("Glacier Name : " + feature.properties.FEATURE_NA + "     Elevation (ft): " + feature.properties.ELEV_IN_FT);
 						      }}).addTo(map);
@@ -193,7 +193,7 @@
 </div>
 <div id="map"></div>
 <div id = "links">
-	<p>All data sourced from <a href="https://public-nps.opendata.arcgis.com/datasets/nps::rocky-mountain-national-park-trails/about">the National Park Service</a></p>
+	<h3>All data sourced from <a href="https://public-nps.opendata.arcgis.com/datasets/nps::rocky-mountain-national-park-trails/about">the National Park Service</a></h3>
 	<p>Rocky Mountain  National Park <a href="https://public-nps.opendata.arcgis.com/datasets/nps::rocky-mountain-national-park-fire-history-recent/about">fire data</a></p>
 	<p>Rocky Mountain  National Park <a href="https://public-nps.opendata.arcgis.com/datasets/nps::rocky-mountain-national-park-trails/about">trail data</a></p>
 	<p>Rocky Mountain  National Park <a href="https://public-nps.opendata.arcgis.com/datasets/nps::rocky-mountain-national-park-glaciers/about">glacier data</a></p>
