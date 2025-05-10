@@ -112,8 +112,11 @@
       };
 
 	//reference new snowflake symbol	
-	var snowflake = new Symbol.PictureMarkerSymbol({"angle":0,"xoffset":0,"yoffset":0,"type":"esriPMS","url":"https://static.arcgis.com/images/Symbols/NPS/Winter_Recreation_area_1.png","imageData":"iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAS9SURBVHhe7ZuBUetMDIRTAiVQAiVQAiVQAiXQASVQAiVQAiVQAiXw+8tYjLTR6c75bb/3EnZmByLfnU4rWed4JgfB/cS3id8XSmIjxhQvE7NJl0hiDbim4I0/IlAS2YBr4PF2OLnnHx4evt/f378vBcRCTBrnRGKPRgZeKhoiRMOemf/4+Jj/2wfEpvFOjIY9wEZub2+P/p6enr6/vr7mK9sCPxrvxGjYA+rz+fl5vrI91PfEaNgD6vNXgF8BLlwA7fbq0wtAo9rydFDfE6NhTRDI3d3dcd37+/ufI1Z9IgCB8/fm5ubHtgXU98RoWBMEoes/Pj6e2BDHjkXPLZ5J1MfEaFgTmQBL+M8I8Pn5eXzMhPxvIAAr6aX0D0h2e3A78dfs5yDxFQ3nQIP0TYzNEoy/XpEgtQlqJfH5XPh1ZkZDC6+vr6GReega2Rgqg/k61oiILy8v8+iIEQFsf70TxK8zMxoyaIPSUvfXYHXvvr29nYxnfb+eohKAwHV/+GjBj5sZDRl0DCRjthG91mteOp7MVcgEwEerorxAimR8NGTQMZ6944uSJEseOt4LQCVoBlWAXmNdXQDdQI9eAP7HRnMzu45HAOv0fNYAlvgnId6/IpkTDS2QmewhJqPPoAlgzMqWTfusniOA3ZK9IzKZGw099Lq50c5xFWCEJgDzR0TXplwhmR8NI2BjjfdrgWRlyTOAkTmI0LvXofaXHpI1oqGH7Nj5kxwtfUOyRjRUqLJOkxvJ2P+h9gq9NnIbJHOjoUKrgVkZsoGRW+McWparHlR1f0MyLxoqaHCt0mMjVTUwjzHGqqlm3w0Aj83qY3MBANmmM7fKjc1WAVExCjaejYWMbz3a+mrw3x4r6PoTo+Fc4JzM6nrKVpZ6x1111PW+AHkka0fDuRgVoBUElZWN92x9W1yCZN1o6IEMkq1WJgmwaoSUbAZKPRsPq+wjHNdHyh8k60dDBS3TVi/AVgWkmawqh2sZSIDvNTTElkgefu2Z0VAha244tk2O3gZLiV+rOIJs9YtWVXok86KhQiaAkYxXWV+DHImZ3bi5AFp2fxOpit2OQY6dVhkqz6kMRB6dUzXIDMka0TCCkS9EvjcsrRrmWT+pnigh+6jeASqSNaKhwkjgkIB9VrwAzNc1+OwDNeEAQowIqD5bSOZGQwYUHgnc6AMAFoA9rmpAfPYniM43+wgZW/WCZE40ZNAxPWYB+A6dCWAgi72Xoj2qf49kfDRk0DFGypaHGg2o2gCoBMigAjCe27HVH3YRACdWaksE4ATJekB1/2YCAPxnr9xWF4DN2bGXHTsjArDZ3tHpRfVoCWBgP9js5Fm9B/TQEyB7edEi1UB5e/QEWAK/zsxoOAc+A/6LDvYlp4cn61ml+erhr1bgEqifidGwJuj8uv4SjjzbL0XiJxrWRCYAmc2aYFYp/7wAlK71BwK0891sRj4Df7T5W2BNeL8zo2EL6Du7lgAA0Za841sK73dmNOyBSoCt4f3OjIY98CvArwBXLgBNzt7v8WBTPbquDY13YjRs2YEVe/oCjQezaODLzqWC2DTeiZf/szkqrRH88WdzV//DSXDVP501XJMIJ8EbKImTnnBBJLafsj8cDof/ABONdXdbLIZQAAAAAElFTkSuQmCC","contentType":"image/png","width":24,"height":24});
-
+	icons <- awesomeIcons(
+  icon = 'snowflake',
+  iconColor = 'white',
+  library = 'fa',
+)
 
 		// remote RMNP fires data
 		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_FIRE_FireHistoryRecent_ParkandVicinity_py_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
@@ -151,9 +154,7 @@
 		$.getJSON('https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_HYDRO_Glaciers_pt_NAD83_1/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson', function(data) {
 			//convert geojson file to a layer
 			RMNPglaciers = L.geoJSON(data,
-						      {pointToLayer: (geojson, latlng) => {
-          							return L.marker(latlng, {
-            							icon: snowflake});}
+						      {icon : icons,
 							onEachFeature: function(feature, layer) {
 								layer.bindPopup("Glacier Name : " + feature.properties.FEATURE_NA + "     Elevation (ft): " + feature.properties.ELEV_IN_FT);
 						      }});
